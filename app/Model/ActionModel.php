@@ -49,7 +49,7 @@ class ActionModel extends Base
      */
     public function getAllByProject($project_id)
     {
-        $actions = $this->db->table(self::TABLE)->eq('project_id', $project_id)->findAll();
+        $actions = $this->db->table(self::TABLE)->eq('project_id', $project_id)->asc('action_name')->asc('event_name')->findAll();
         $params = $this->actionParameterModel->getAllByActions(array_column($actions, 'id'));
         return $this->attachParamsToActions($actions, $params);
     }

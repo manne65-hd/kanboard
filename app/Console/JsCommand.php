@@ -46,6 +46,7 @@ class JsCommand extends BaseCommand
         'assets/js/src/BoardHorizontalScrolling.js',
         'assets/js/src/BoardPolling.js',
         'assets/js/src/BoardVerticalScrolling.js',
+        'assets/js/src/CollapseAutomaticActions.js',
         'assets/js/src/Column.js',
         'assets/js/src/Dropdown.js',
         'assets/js/src/Search.js',
