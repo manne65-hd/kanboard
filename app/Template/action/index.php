@@ -1,5 +1,5 @@
 <pre>
-    <?php print_r($actions); ?>
+    <?php //print_r($actions); ?>
 </pre>
 <div class="page-header">
     <h2><?= t('Automatic actions for the project "%s"', $project['name']) ?></h2>
@@ -17,9 +17,14 @@
     <p class="alert"><?= t('There is no action at the moment.') ?></p>
 <?php else: ?>
 <!--    <table class="table-scrolling"><tr><td> -->
-        <?php $last_action_name = $actions[0]['action_name']; ?>
-        <?php $last_event_name = $actions[0]['event_name']; ?>
+        <?php $current_action_name = $actions[0]['action_name']; ?>
+        <?php $current_event_name = $actions[0]['event_name']; ?>
         <?php $same_actions_id = $same_events_id = 1; ?>
+        <?php if (! isset($available_params[$actions[0]['action_name']])): ?>
+            <?php $current_action_title = $this->text->e($actions[0]['action_name']) ?>
+        <?php else: ?>
+            <?php $current_action_title = $this->text->in($actions[0]['action_name'], $available_actions) ?>
+        <?php endif ?>
         <?php $all_actions = new CachingIterator(new ArrayIterator ($actions), CachingIterator::TOSTRING_USE_CURRENT); ?>
         <span id="same-actions-toggle-header_<?= $same_actions_id ?>"
             class="same-category-header same-actions"
@@ -28,7 +33,7 @@
             data-title-collapse= ""
             data-title-expand= ""
             data-toggle-id="<?= $same_actions_id ?>">
-                <i id="same-actions-toggle-icon_<?= $same_actions_id ?>" class="fa fa-caret-right"></i><?= t('Aufgaben-Typ: ') . 'BLA ' ?>
+                <i id="same-actions-toggle-icon_<?= $same_actions_id ?>" class="fa fa-caret-down"></i><?= t('Actions of type: ') . $current_action_title ?>
         </span>
         <div id="same-actions-body_<?= $same_actions_id ?>" class="same-actions-body">
             <span id="same-events-toggle-header_<?= $same_events_id ?>"
@@ -38,7 +43,7 @@
                 data-title-collapse= ""
                 data-title-expand= ""
                 data-toggle-id="<?= $same_events_id ?>">
-                    <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-right"></i>
+                    <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-down"></i><?= $this->text->in($actions[0]['event_name'], $available_events) ?>
             </span>
             <div id="same-events-body_<?= $same_events_id ?>" class="same-events-body">
                 <table class="automatic-actions">
@@ -104,14 +109,19 @@
                     </tr>
             <?php if ($all_actions->hasNext()): ?>
                 <?php $next_action = $all_actions->getInnerIterator()->current(); ?>
-                <?php if($next_action['event_name'] != $last_event_name && $next_action['action_name'] != $last_action_name): ?>
-                    <?php $last_event_name = $next_action['event_name'] ?>
-                    <?php $last_action_name = $next_action['action_name'] ?>
+                <?php if($next_action['event_name'] != $current_event_name && $next_action['action_name'] != $current_action_name): ?>
+                    <?php $current_event_name = $next_action['event_name'] ?>
+                    <?php $current_action_name = $next_action['action_name'] ?>
                             </table>
                         </div><!-- closing same_events_body_<?= $same_events_id ?> -->
                     </div><!-- closing same_actions_body_<?= $same_actions_id ?> -->
                     <?php $same_events_id++; ?>
                     <?php $same_actions_id++; ?>
+                    <?php if (! isset($available_params[$next_action['action_name']])): ?>
+                        <?php $current_action_title = $this->text->e($next_action['action_name']) ?>
+                    <?php else: ?>
+                        <?php $current_action_title = $this->text->in($next_action['action_name'], $available_actions) ?>
+                    <?php endif ?>
                     <span id="same-actions-toggle-header_<?= $same_actions_id ?>"
                         class="same-category-header same-actions"
                         title="collapse SAME actions"
@@ -119,7 +129,7 @@
                         data-title-collapse= ""
                         data-title-expand= ""
                         data-toggle-id="<?= $same_actions_id ?>">
-                            <i id="same-actions-toggle-icon_<?= $same_actions_id ?>" class="fa fa-caret-right"></i>
+                            <i id="same-actions-toggle-icon_<?= $same_actions_id ?>" class="fa fa-caret-down"></i><?= t('Actions of type: ') . $current_action_title ?>
                     </span>
                     <div id="same-actions-body_<?= $same_actions_id ?>" class="same-actions-body">
                         <span id="same-events-toggle-header_<?= $same_events_id ?>"
@@ -129,12 +139,12 @@
                             data-title-collapse= ""
                             data-title-expand= ""
                             data-toggle-id="<?= $same_events_id ?>">
-                                <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-right"></i>
+                                <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-down"></i><?= $this->text->in($next_action['event_name'], $available_events) ?>
                         </span>
                         <div id="same-events-body_<?= $same_events_id ?>" class="same-events-body">
                             <table class="automatic-actions">
-                <?php elseif($next_action['event_name'] != $last_event_name): ?>
-                    <?php $last_event_name = $next_action['event_name'] ?>
+                <?php elseif($next_action['event_name'] != $current_event_name): ?>
+                    <?php $current_event_name = $next_action['event_name'] ?>
                         </table>
                     </div><!-- closing same_events_body_<?= $same_events_id ?> -->
                     <?php $same_events_id++; ?>
@@ -145,7 +155,7 @@
                         data-title-collapse= ""
                         data-title-expand= ""
                         data-toggle-id="<?= $same_events_id ?>">
-                            <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-right"></i>
+                            <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-down"></i><?= $this->text->in($next_action['event_name'], $available_events) ?>
                     </span>
                     <div id="same-events-body_<?= $same_events_id ?>" class="same-events-body">
                         <table class="automatic-actions">
