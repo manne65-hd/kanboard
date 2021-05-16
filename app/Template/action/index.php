@@ -26,32 +26,31 @@
             <?php $current_action_title = $this->text->in($actions[0]['action_name'], $available_actions) ?>
         <?php endif ?>
         <?php $all_actions = new CachingIterator(new ArrayIterator ($actions), CachingIterator::TOSTRING_USE_CURRENT); ?>
-        <span id="same-actions-toggle-header_<?= $same_actions_id ?>"
+        <div id="same-actions-toggle-header_<?= $same_actions_id ?>"
             class="same-category-header same-actions"
             title="collapse SAME actions"
             data-toggle-type="actions"
             data-title-collapse= ""
             data-title-expand= ""
             data-toggle-id="<?= $same_actions_id ?>">
-                <i id="same-actions-toggle-icon_<?= $same_actions_id ?>" class="fa fa-caret-down"></i><?= t('Actions of type: ') . $current_action_title ?>
-        </span>
+                <i id="same-actions-toggle-icon_<?= $same_actions_id ?>" class="fa fa-caret-down actions-toggle-icon"></i><?= t('Actions of type: ') . $current_action_title ?>
+        </div>
         <div id="same-actions-body_<?= $same_actions_id ?>" class="same-actions-body">
-            <span id="same-events-toggle-header_<?= $same_events_id ?>"
+            <div id="same-events-toggle-header_<?= $same_events_id ?>"
                 class="same-category-header same-events"
                 title="Collapse SAME Events"
                 data-toggle-type="events"
                 data-title-collapse= ""
                 data-title-expand= ""
                 data-toggle-id="<?= $same_events_id ?>">
-                    <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-down"></i><?= $this->text->in($actions[0]['event_name'], $available_events) ?>
-            </span>
+                    <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-down actions-toggle-icon"></i><?= $this->text->in($actions[0]['event_name'], $available_events) ?>
+            </div>
             <div id="same-events-body_<?= $same_events_id ?>" class="same-events-body">
-                <table class="automatic-actions">
+                <div class="automatic-actions">
                     <?php foreach ($all_actions as $action): ?>
-                    <tr>
-                        <th>
+                    <div class="automatic-actions-header">
                             <div class="dropdown">
-                                <a href="#" class="dropdown-menu dropdown-menu-link-icon"><i class="fa fa-cog"></i><i class="fa fa-caret-down"></i></a>
+                                <a href="#" class="dropdown-menu dropdown-menu-link-icon"><i class="fa fa-cog"></i><i class="fa fa-caret-down actions-toggle-icon"></i></a>
                                 <ul>
                                     <li>
                                         <?= $this->modal->confirm('trash-o', t('Remove'), 'ActionController', 'confirm', array('project_id' => $project['id'], 'action_id' => $action['id'])) ?>
@@ -63,20 +62,18 @@
                             <?php else: ?>
                                 <?= $this->text->in($action['action_name'], $available_actions) ?>
                             <?php endif ?>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
+                    </div>
+                    <div class="automatic-actions-body">
                             <?php if (! isset($available_params[$action['action_name']])): ?>
                                 <p class="alert alert-error"><?= t('Automatic action not found: "%s"', $action['action_name']) ?></p>
                             <?php else: ?>
                             <ul>
-                                <li>
+                                <li class="automatic_actions">
                                     <?= t('Event name') ?> =
                                     <strong><?= $this->text->in($action['event_name'], $available_events) ?></strong>
                                 </li>
                                 <?php foreach ($action['params'] as $param_name => $param_value): ?>
-                                    <li>
+                                    <li class="automatic_actions">
                                         <?php if (isset($available_params[$action['action_name']][$param_name]) && is_array($available_params[$action['action_name']][$param_name])): ?>
                                             <?= $this->text->e(ucfirst($param_name)) ?> =
                                         <?php else: ?>
@@ -105,14 +102,13 @@
                                 <?php endforeach ?>
                             </ul>
                             <?php endif ?>
-                        </td>
-                    </tr>
+                    </div>
             <?php if ($all_actions->hasNext()): ?>
                 <?php $next_action = $all_actions->getInnerIterator()->current(); ?>
                 <?php if($next_action['event_name'] != $current_event_name && $next_action['action_name'] != $current_action_name): ?>
                     <?php $current_event_name = $next_action['event_name'] ?>
                     <?php $current_action_name = $next_action['action_name'] ?>
-                            </table>
+                            </div>
                         </div><!-- closing same_events_body_<?= $same_events_id ?> -->
                     </div><!-- closing same_actions_body_<?= $same_actions_id ?> -->
                     <?php $same_events_id++; ?>
@@ -122,46 +118,46 @@
                     <?php else: ?>
                         <?php $current_action_title = $this->text->in($next_action['action_name'], $available_actions) ?>
                     <?php endif ?>
-                    <span id="same-actions-toggle-header_<?= $same_actions_id ?>"
+                    <div id="same-actions-toggle-header_<?= $same_actions_id ?>"
                         class="same-category-header same-actions"
                         title="collapse SAME actions"
                         data-toggle-type="actions"
                         data-title-collapse= ""
                         data-title-expand= ""
                         data-toggle-id="<?= $same_actions_id ?>">
-                            <i id="same-actions-toggle-icon_<?= $same_actions_id ?>" class="fa fa-caret-down"></i><?= t('Actions of type: ') . $current_action_title ?>
-                    </span>
+                            <i id="same-actions-toggle-icon_<?= $same_actions_id ?>" class="fa fa-caret-down actions-toggle-icon"></i><?= t('Actions of type: ') . $current_action_title ?>
+                    </div>
                     <div id="same-actions-body_<?= $same_actions_id ?>" class="same-actions-body">
-                        <span id="same-events-toggle-header_<?= $same_events_id ?>"
+                        <div id="same-events-toggle-header_<?= $same_events_id ?>"
                             class="same-category-header same-events"
                             title="collapse SAME events"
                             data-toggle-type="events"
                             data-title-collapse= ""
                             data-title-expand= ""
                             data-toggle-id="<?= $same_events_id ?>">
-                                <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-down"></i><?= $this->text->in($next_action['event_name'], $available_events) ?>
-                        </span>
+                                <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-down actions-toggle-icon"></i><?= $this->text->in($next_action['event_name'], $available_events) ?>
+                        </div>
                         <div id="same-events-body_<?= $same_events_id ?>" class="same-events-body">
-                            <table class="automatic-actions">
+                            <div class="automatic-actions">
                 <?php elseif($next_action['event_name'] != $current_event_name): ?>
                     <?php $current_event_name = $next_action['event_name'] ?>
-                        </table>
+                        </div>
                     </div><!-- closing same_events_body_<?= $same_events_id ?> -->
                     <?php $same_events_id++; ?>
-                    <span id="same-events-toggle-header_<?= $same_events_id ?>"
+                    <div id="same-events-toggle-header_<?= $same_events_id ?>"
                         class="same-category-header same-events"
                         title="collapse SAME events"
                         data-toggle-type="events"
                         data-title-collapse= ""
                         data-title-expand= ""
                         data-toggle-id="<?= $same_events_id ?>">
-                            <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-down"></i><?= $this->text->in($next_action['event_name'], $available_events) ?>
-                    </span>
+                            <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-down actions-toggle-icon"></i><?= $this->text->in($next_action['event_name'], $available_events) ?>
+                    </div>
                     <div id="same-events-body_<?= $same_events_id ?>" class="same-events-body">
-                        <table class="automatic-actions">
+                        <div class="automatic-actions">
                 <?php endif ?>
             <?php else: ?>
-                <!-- the END! --></table></div></div>
+                <!-- the END! --></div></div></div>
             <?php endif ?>
         <?php endforeach ?>
     <!-- </td></tr></table> -->
