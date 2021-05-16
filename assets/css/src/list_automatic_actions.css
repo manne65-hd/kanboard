@@ -1,0 +1,22 @@
+.bla {
+    attribute: value;
+}
+
+.same-category-header {
+    display: block;
+}
+
+.same-actions {
+    font-size: 1.4em;
+    background-color: #D3D3D3;
+}
+
+.same-events {
+    margin-left: 10px;
+    font-size: 1.2em;
+    background-color: #E8E8E8;
+}
+
+table.automatic-actions {
+    margin-left: 20px;
+}

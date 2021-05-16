@@ -81,6 +81,7 @@ class CssCommand extends BaseCommand
         'slideshow.css',
         'list_items.css',
         'bulk_change.css',
+        'list_automatic_actions.css'
     ];
 
     private $printFiles = [
