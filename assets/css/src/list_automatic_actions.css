@@ -13,7 +13,7 @@
     /*background-color: #D3D3D3;*/
     background-color: #BEBEBE;
     margin-top: 14px;
-    padding: 3px 0px 3px 2px;
+    padding: 3px 0px 3px 5px;
 }
 
 .same-events {
@@ -21,8 +21,9 @@
     font-size: 1.0em;
     /*background-color: #E8E8E8;*/
     background-color: #D3D3D3;
-    margin-top: 7px;
-    padding: 2px 0px 2px 2px;
+    /*margin-top: 7px;*/
+    padding: 2px 0px 2px 5px;
+    border-bottom: 1px dotted;
 }
 
 .actions-toggle-icon{
@@ -34,7 +35,7 @@
     text-align: left;
     font-weight: bold;
     padding: 0.5em 3px;
-    border-width: 1px 1px 0px 1px;
+    border-width: 0px 1px 0px 1px;
     border-style: solid;
     border-color: #eee;
     background: #fbfbfb

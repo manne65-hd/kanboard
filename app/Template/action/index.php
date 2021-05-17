@@ -34,17 +34,17 @@
             data-title-collapse= "<?= t('Click to collapse all actions of type: "%s"', $current_action_title) ?>"
             data-title-expand= "<?= t('Click to expand all actions of type: "%s"', $current_action_title) ?>"
             data-toggle-id="<?= $same_actions_id ?>">
-                <i id="same-actions-toggle-icon_<?= $same_actions_id ?>" class="fa fa-caret-down actions-toggle-icon"></i><?= $current_action_title ?>
+                <i id="same-actions-toggle-icon_<?= $same_actions_id ?>" class="fa fa-caret-down actions-toggle-icon"></i><?= $current_action_title . ' ...' ?>
         </div>
         <div id="same-actions-body_<?= $same_actions_id ?>" class="same-actions-body">
             <div id="same-events-toggle-header_<?= $same_events_id ?>"
                 class="same-category-header same-events"
-                title="<?= t('Click to collapse all events of type: "%s"', $current_event_title) ?>"
+                title="<?= t('Click to collapse all events of type: "%s" in the current action-type', $current_event_title) ?>"
                 data-toggle-type="events"
-                data-title-collapse= "<?= t('Click to collapse all events of type: "%s"', $current_event_title) ?>"
-                data-title-expand= "<?= t('Click to expand all events of type: "%s"', $current_event_title) ?>"
+                data-title-collapse= "<?= t('Click to collapse all events of type: "%s" in the current action-type', $current_event_title) ?>"
+                data-title-expand= "<?= t('Click to expand all events of type: "%s" in the current action-type', $current_event_title) ?>"
                 data-toggle-id="<?= $same_events_id ?>">
-                    <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-down actions-toggle-icon"></i><?= $this->text->in($actions[0]['event_name'], $available_events) ?>
+                    <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-down actions-toggle-icon"></i><?= $current_event_title . ' ...' ?>
             </div>
             <div id="same-events-body_<?= $same_events_id ?>" class="same-events-body">
                 <div class="automatic-actions">
@@ -122,22 +122,22 @@
                     <?php $current_event_title = $this->text->in($next_action['event_name'], $available_events) ?>
                     <div id="same-actions-toggle-header_<?= $same_actions_id ?>"
                         class="same-category-header same-actions"
-                        title="<?= t('Click to collapse all actions of type: %s', $current_action_title) ?>"
+                        title="<?= t('Click to collapse all actions of type: "%s"', $current_action_title) ?>"
                         data-toggle-type="actions"
-                        data-title-collapse= "<?= t('Click to collapse all actions of type: %s', $current_action_title) ?>"
-                        data-title-expand= "<?= t('Click to expand all actions of type: %s', $current_action_title) ?>"
+                        data-title-collapse= "<?= t('Click to collapse all actions of type: "%s"', $current_action_title) ?>"
+                        data-title-expand= "<?= t('Click to expand all actions of type: "%s"', $current_action_title) ?>"
                         data-toggle-id="<?= $same_actions_id ?>">
-                            <i id="same-actions-toggle-icon_<?= $same_actions_id ?>" class="fa fa-caret-down actions-toggle-icon"></i><?= t('Actions of type: ') . $current_action_title ?>
+                            <i id="same-actions-toggle-icon_<?= $same_actions_id ?>" class="fa fa-caret-down actions-toggle-icon"></i><?= $current_action_title . ' ...' ?>
                     </div>
                     <div id="same-actions-body_<?= $same_actions_id ?>" class="same-actions-body">
                         <div id="same-events-toggle-header_<?= $same_events_id ?>"
                             class="same-category-header same-events"
-                            title="<?= t('Click to collapse all events of type: %s', $current_event_title) ?>"
+                            title="<?= t('Click to collapse all events of type: "%s" in the current action-type', $current_event_title) ?>"
                             data-toggle-type="events"
-                            data-title-collapse= "<?= t('Click to collapse all events of type: %s', $current_event_title) ?>"
-                            data-title-expand= "<?= t('Click to expand all events of type: %s', $current_event_title) ?>"
+                            data-title-collapse= "<?= t('Click to collapse all events of type: "%s" in the current action-type', $current_event_title) ?>"
+                            data-title-expand= "<?= t('Click to expand all events of type: "%s" in the current action-type', $current_event_title) ?>"
                             data-toggle-id="<?= $same_events_id ?>">
-                                <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-down actions-toggle-icon"></i><?= $this->text->in($next_action['event_name'], $available_events) ?>
+                                <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-down actions-toggle-icon"></i><?= $current_event_title . ' ...' ?>
                         </div>
                         <div id="same-events-body_<?= $same_events_id ?>" class="same-events-body">
                             <div class="automatic-actions">
@@ -149,12 +149,12 @@
                     <?php $current_event_title = $this->text->in($next_action['event_name'], $available_events) ?>
                     <div id="same-events-toggle-header_<?= $same_events_id ?>"
                         class="same-category-header same-events"
-                        title="<?= t('Click to collapse all events of type: %s', $current_event_title) ?>"
+                        title="<?= t('Click to collapse all events of type: "%s" in the current action-type', $current_event_title) ?>"
                         data-toggle-type="events"
-                        data-title-collapse= "<?= t('Click to collapse all events of type: %s', $current_event_title) ?>"
-                        data-title-expand= "<?= t('Click to expand all events of type: %s', $current_event_title) ?>"
+                        data-title-collapse= "<?= t('Click to collapse all events of type: "%s" in the current action-type', $current_event_title) ?>"
+                        data-title-expand= "<?= t('Click to expand all events of type: "%s" in the current action-type', $current_event_title) ?>"
                         data-toggle-id="<?= $same_events_id ?>">
-                            <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-down actions-toggle-icon"></i><?= $this->text->in($next_action['event_name'], $available_events) ?>
+                            <i id="same-events-toggle-icon_<?= $same_events_id ?>" class="fa fa-caret-down actions-toggle-icon"></i><?= $current_event_title . ' ...' ?>
                     </div>
                     <div id="same-events-body_<?= $same_events_id ?>" class="same-events-body">
                         <div class="automatic-actions">
