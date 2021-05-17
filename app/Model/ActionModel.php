@@ -49,6 +49,20 @@ class ActionModel extends Base
      */
     public function getAllByProject($project_id)
     {
+        $actions = $this->db->table(self::TABLE)->eq('project_id', $project_id)->findAll();
+        $params = $this->actionParameterModel->getAllByActions(array_column($actions, 'id'));
+        return $this->attachParamsToActions($actions, $params);
+    }
+
+    /**
+     * Return sorted actions and parameters to display as a collapsible list for a given project
+     *
+     * @access public
+     * @param  integer $project_id
+     * @return array
+     */
+    public function getIndexForProject($project_id)
+    {
         $actions = $this->db->table(self::TABLE)->eq('project_id', $project_id)->asc('action_name')->asc('event_name')->findAll();
         $params = $this->actionParameterModel->getAllByActions(array_column($actions, 'id'));
         return $this->attachParamsToActions($actions, $params);

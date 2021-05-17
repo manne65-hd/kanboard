@@ -18,7 +18,7 @@ class ActionController extends BaseController
     public function index()
     {
         $project = $this->getProject();
-        $actions = $this->actionModel->getAllByProject($project['id']);
+        $actions = $this->actionModel->getIndexForProject($project['id']);
 
         $this->response->html($this->helper->layout->project('action/index', array(
             'values' => array('project_id' => $project['id']),
