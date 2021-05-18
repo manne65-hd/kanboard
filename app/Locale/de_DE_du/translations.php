@@ -1429,4 +1429,8 @@ return array(
     'XBT - Bitcoin' => 'XBT - Bitcoin',
     'You must select a file to upload as your avatar!' => 'Du musst eine Datei auswählen, die als Avatar hochgeladen werden soll!',
     'The file you uploaded is not a valid image! (Only *.gif, *.jpg, *.jpeg and *.png are allowed!)' => 'Die hochgeladene Datei ist kein gültiges Bild! (Nur *.gif, *.jpg, *.jpeg and *.png sind erlaubt!)',
+    'Click to collapse all actions of type: "%s"' => 'Klicken, um alle Aktionen vom Typ "%s" einzuklappen',
+    'Click to expand all actions of type: "%s"' => 'Klicken, um alle Aktionen vom Typ "%s" auszuklappen',
+    'Click to collapse all events of type: "%s" for the current action-type' => 'Klicken, um alle Ereignisse vom Typ "%s" für die aktuelle Aktion einzuklappen',
+    'Click to expand all events of type: "%s" for the current action-type' => 'Klicken, um alle Ereignisse vom Typ "%s" für die aktuelle Aktion auszuklappen',
 );
