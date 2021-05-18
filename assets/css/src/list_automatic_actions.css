@@ -9,12 +9,12 @@ td a.automatic-actions-dropdown-menu i {
 .same-category-header {
     display: block;
     padding-left: 3px;
-    color: #ffffff;
 }
 
 .same-actions {
     margin-top: 5px;
     padding: 3px 0px 3px 5px;
+    color: #000000;
     font-size: 1.2em;
     background-color: #BEBEBE;
 }
@@ -23,9 +23,14 @@ td a.automatic-actions-dropdown-menu i {
     margin-top: 0px !important;
 }
 
+.same-actions-body {
+    display: none;
+}
+
 .same-events {
     margin-left: 10px;
     padding: 2px 0px 2px 5px;
+    color: #ffffff;
     font-size: 1.0em;
     background-color: #D3D3D3;
     border-bottom: 1px dotted;
@@ -34,6 +39,7 @@ td a.automatic-actions-dropdown-menu i {
 .actions-toggle-icon{
     width: 18px;
 }
+
 
 .current-automatic-action {
     margin-left: 20px;

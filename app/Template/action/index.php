@@ -33,7 +33,7 @@
                     data-title-collapse= "<?= t('Click to collapse all actions of type: "%s"', $current_action_title) ?>"
                     data-title-expand= "<?= t('Click to expand all actions of type: "%s"', $current_action_title) ?>"
                     data-toggle-id="<?= $same_actions_id ?>">
-                        <i id="same-actions-toggle-icon_<?= $same_actions_id ?>" class="fa fa-caret-down actions-toggle-icon"></i><?= $current_action_title . ' ...' ?>
+                        <i id="same-actions-toggle-icon_<?= $same_actions_id ?>" class="fa fa-caret-right actions-toggle-icon"></i><?= $current_action_title . ' ...' ?>
                 </div>
                 <div id="same-actions-body_<?= $same_actions_id ?>" class="same-actions-body">
                     <div id="same-events-toggle-header_<?= $same_events_id ?>"
@@ -126,7 +126,7 @@
                                 data-title-collapse= "<?= t('Click to collapse all actions of type: "%s"', $current_action_title) ?>"
                                 data-title-expand= "<?= t('Click to expand all actions of type: "%s"', $current_action_title) ?>"
                                 data-toggle-id="<?= $same_actions_id ?>">
-                                    <i id="same-actions-toggle-icon_<?= $same_actions_id ?>" class="fa fa-caret-down actions-toggle-icon"></i><?= $current_action_title . ' ...' ?>
+                                    <i id="same-actions-toggle-icon_<?= $same_actions_id ?>" class="fa fa-caret-right actions-toggle-icon"></i><?= $current_action_title . ' ...' ?>
                             </div>
                             <div id="same-actions-body_<?= $same_actions_id ?>" class="same-actions-body">
                                 <div id="same-events-toggle-header_<?= $same_events_id ?>"
