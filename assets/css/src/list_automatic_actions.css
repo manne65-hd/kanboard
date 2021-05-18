@@ -2,6 +2,10 @@ td.automatic-actions-list {
     border-width: 0px !important;
 }
 
+td a.automatic-actions-dropdown-menu i {
+    color: #333 !important;
+}
+
 .same-category-header {
     display: block;
     padding-left: 3px;
@@ -49,6 +53,10 @@ td.automatic-actions-list {
     border-width: 0px 1px 1px 1px;
     border-style: solid;
     border-color: #eee;
+}
+
+ul.automatic-actions-params{
+    padding-left: 4px;
 }
 
 li.automatic-actions-params{

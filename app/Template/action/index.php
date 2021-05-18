@@ -50,7 +50,7 @@
                             <?php foreach ($all_actions as $action): ?>
                             <div class="current-automatic-action">
                                     <div class="dropdown">
-                                        <a href="#" class="dropdown-menu dropdown-menu-link-icon"><i class="fa fa-cog"></i><i class="fa fa-caret-down actions-toggle-icon"></i></a>
+                                        <a href="#" class="dropdown-menu dropdown-menu-link-icon automatic-actions-dropdown-menu"><i class="fa fa-cog"></i><i class="fa fa-caret-down actions-toggle-icon"></i></a>
                                         <ul>
                                             <li>
                                                 <?= $this->modal->confirm('trash-o', t('Remove'), 'ActionController', 'confirm', array('project_id' => $project['id'], 'action_id' => $action['id'])) ?>
@@ -67,7 +67,7 @@
                                     <?php if (! isset($available_params[$action['action_name']])): ?>
                                         <p class="alert alert-error"><?= t('Automatic action not found: "%s"', $action['action_name']) ?></p>
                                     <?php else: ?>
-                                    <ul>
+                                    <ul class="automatic-actions-params">
                                         <li class="automatic-actions-params">
                                             <?= t('Event name') ?> =
                                             <strong><?= $this->text->in($action['event_name'], $available_events) ?></strong>
