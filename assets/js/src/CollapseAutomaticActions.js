@@ -11,8 +11,7 @@ KB.on('dom.ready', function () {
 
         // let's toggle the div-container
         $(same_actions).slideToggle(200, function(){
-            // after toggling we'll have to change some attributes of the icon
-            //alert('Toggled it ...');
+            // after toggling we'll have to change some attributes of the header & icon
             if ($(same_actions).is(':visible')) {
                 $(toggle_header).attr('title', title_collapse);
                 $(toggle_header).css('color', '#ffffff');

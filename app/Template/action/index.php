@@ -16,7 +16,7 @@
 <?php if (empty($actions)): ?>
     <p class="alert"><?= t('There is no action at the moment.') ?></p>
 <?php else: ?>
-<!--    <table class="table-scrolling"><tr><td> -->
+    <table class="table-scrolling"><tr><td class="automatic-actions">
         <?php $current_action_name = $actions[0]['action_name']; ?>
         <?php $current_event_name = $actions[0]['event_name']; ?>
         <?php $same_actions_id = $same_events_id = 1; ?>
@@ -28,7 +28,7 @@
         <?php $current_event_title = $this->text->in($actions[0]['event_name'], $available_events) ?>
         <?php $all_actions = new CachingIterator(new ArrayIterator ($actions), CachingIterator::TOSTRING_USE_CURRENT); ?>
         <div id="same-actions-toggle-header_<?= $same_actions_id ?>"
-            class="same-category-header same-actions"
+            class="same-category-header same-actions same-actions-first"
             title="<?= t('Click to collapse all actions of type: "%s"', $current_action_title) ?>"
             data-toggle-type="actions"
             data-title-collapse= "<?= t('Click to collapse all actions of type: "%s"', $current_action_title) ?>"
@@ -160,8 +160,8 @@
                         <div class="automatic-actions">
                 <?php endif ?>
             <?php else: ?>
-                <!-- the END! --></div></div></div>
+                </div></div></div>
             <?php endif ?>
         <?php endforeach ?>
-    <!-- </td></tr></table> -->
+    </td></tr></table>
 <?php endif ?>
