@@ -1,4 +1,4 @@
-td.automatic-actions {
+td.automatic-actions-list {
     border-width: 0px !important;
 }
 
@@ -31,7 +31,7 @@ td.automatic-actions {
     width: 18px;
 }
 
-.automatic-actions-header {
+.current-automatic-action {
     margin-left: 20px;
     padding: 0.5em 3px;
     text-align: left;
@@ -42,7 +42,7 @@ td.automatic-actions {
     background: #fbfbfb
 }
 
-.automatic-actions-body{
+.current-automatic-action-params{
     margin-left: 20px;
     padding-top: 4px;
     padding-bottom: 4px;
@@ -51,6 +51,6 @@ td.automatic-actions {
     border-color: #eee;
 }
 
-li.automatic_actions{
+li.automatic-actions-params{
     margin-left: 20px;
 }
