@@ -1429,4 +1429,8 @@ return array(
     'XBT - Bitcoin' => 'XBT - Bitcoin',
     'You must select a file to upload as your avatar!' => 'Vælg fil som overføres som profil billede!',
     'The file you uploaded is not a valid image! (Only *.gif, *.jpg, *.jpeg and *.png are allowed!)' => 'Overført fil er ikke et gyldigt billede! (*.gif, *.jpg, *.jpeg eller *.png)',
+    // 'Click to collapse all actions of type: "%s"' => '',
+    // 'Click to expand all actions of type: "%s"' => '',
+    // 'Click to collapse all events of type: "%s" for the current action-type' => '',
+    // 'Click to expand all events of type: "%s" for the current action-type' => '',
 );
